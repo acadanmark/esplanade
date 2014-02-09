@@ -30,6 +30,36 @@ Dette startede som en kopi af page.php
 					</div><!-- .entry -->
 					<?php comments_template(); ?>
 				</article><!-- .post -->
+<!--
+    Og her er så hvad der skal til for at få vist posts nede under en side
+-->
+<?php
+ $postslist = get_posts('numberposts=10');
+ foreach ($postslist as $post) :
+    setup_postdata($post);
+    include "content.php";
+ endforeach
+ ?>
+<script type="text/javascript">
+    jQuery(function () {
+        // Hide the "Forside" title
+        jQuery('header.entry-header').first().hide();
+
+        // Make all but the first article an entry class (so they get decorated
+        // properly)
+        jQuery('article:gt(1)').addClass('entry');
+
+        // We could comment-out the <div id="location"> above, but this is less
+        // intrusive and easier to maintain
+        jQuery('#location').hide();
+
+        // Why is this required? Dunno...
+        jQuery('head title').text("ACA");
+    });
+</script>
+<!--
+    / Færdig med hvad der skal til for at få vist posts nede under en side
+-->
 			<?php else : ?>
 				<?php esplanade_404(); ?>
 			<?php endif; ?>
