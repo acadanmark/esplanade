@@ -15,6 +15,11 @@
 <body <?php body_class() ?>>
 	<div id="wrapper">
 		<header id="header">
+			<div style="float: left; line-height: 100px;">
+				<a href="<?php echo home_url( '/' ); ?>" rel="home">
+					<img style="vertical-align: middle; border: 0;" src="<?php echo get_template_directory_uri(); ?>/acalogo.gif" border=0>
+				</a>
+			</div>
 			<<?php esplanade_title_tag( 'site' ); ?> id="site-title"><a href="<?php echo home_url( '/' ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></<?php esplanade_title_tag( 'site' ); ?>>
 			<?php if( ! is_active_sidebar( 1 ) ) : ?>
 				<<?php esplanade_title_tag( 'desc' ); ?> id="site-description"><?php bloginfo( 'description' ); ?></<?php esplanade_title_tag( 'desc' ); ?>>
